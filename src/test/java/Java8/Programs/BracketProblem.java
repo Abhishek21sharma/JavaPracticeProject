@@ -1,5 +1,7 @@
 package Java8.Programs;
 
+import java.util.Stack;
+
 public class BracketProblem {
     //ranked easy,..
     //valid parenthesis
@@ -43,13 +45,12 @@ public class BracketProblem {
         String s1 = "([)]";   //false
         String s3 = "(){}[]"; //true
 
+        result(s);
 
     }
 
-    public static boolean result(String s){
+    public static boolean result(String s) {
         boolean flag = false;
-
-        char[] c = s.toCharArray();
 
         //if a bracket is opened ..
         //check the next string .. that should be closed
@@ -60,6 +61,35 @@ public class BracketProblem {
         //if next one is another type of bracket //
 
 
+        //It's classic STACK problem...
+
+        //first of all the strings chars has to be even ..
+
+        //so idea here is similar to set approach
+        //but set will not work in this case, because set keeps tracks of
+        //every item , not just the last item inserted to it..
+        //so best approach is STACK..
+
+        if (s.length() % 2 != 0)
+            return flag;
+
+        Stack<Character> stack = new Stack<>();
+        for (char c :
+                s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else if (c == ')' && !stack.empty() && stack.peek() == '(') {
+                stack.pop();
+            } else if (c == '}' && !stack.empty() && stack.peek() == '{') {
+                stack.pop();
+            } else if (c == ']' && !stack.empty() && stack.peek() == '[') {
+                stack.pop();
+            }
+        }
+
+        flag = stack.empty();
         return flag;
+
     }
+
 }
