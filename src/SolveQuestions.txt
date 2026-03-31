@@ -1,0 +1,20 @@
+Must-Solve "Easy" Problems
+These are the most common entry-level coding challenges for automation roles:
+Valid Parentheses (LeetCode 20): Essential for validating XML/JSON structures or analyzing logs and test reports.
+Two Sum (LeetCode 1): Tests your ability to find pairs in an array that meet a target condition, useful for financial calculation verification.
+Reverse String (LeetCode 344): A fundamental test for string manipulation and in-place operations.
+First Unique Character in a String (LeetCode 387): Frequently used to test pattern matching and character frequency logic.
+Palindrome Linked List (LeetCode 234): Combines linked list traversal with sequence validation.
+LeetCode
+LeetCode
+ +4
+"Medium" Problems for Senior/SDET Roles
+For more advanced roles, interviewers often use these to test your logic with complex data structures:
+Longest Substring Without Repeating Characters (LeetCode 3): Tests sliding window logic, critical for search functionality validation.
+Find All Anagrams in a String (LeetCode 438): Used to test pattern matching in large strings or search results.
+Linked List Cycle (LeetCode 141): Tests pointer manipulation and cycle detection, often using the Fast/Slow pointer technique.
+Move Zeroes (LeetCode 283): Focused on array manipulation while maintaining the order of elements.
+Group Anagrams (LeetCode 49): Tests your ability to use HashMap for grouping related test data.
+Medium
+Medium
+ +3
