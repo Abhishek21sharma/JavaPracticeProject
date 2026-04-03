@@ -16,11 +16,12 @@ public class PatternMatchingWithSwitch {
 
     //modern way..
     public String patternMatchingSwitch(Object o ){
-        return switch (o){
-            //look how cases handled it..
-            case String s -> "String of length" +s.length();
-            case Integer i -> "Integer: " +i;
-            case null, default -> "not a string or int";
-        };
+        return  "";
+//        return switch (o){
+//            //look how cases handled it..
+//            case String s -> "String of length" +s.length();
+//            case Integer i -> "Integer: " +i;
+//            case null, default -> "not a string or int";
+//        };
     }
 }
