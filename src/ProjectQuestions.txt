@@ -1,0 +1,9 @@
+
+For coding theory questions::
+1. Coding Principles
+2. SOLID Pattern
+
+Framework structure::
+1. Explain structure of your framework
+2. What is the unique problem you solved with your code
+3. General practices

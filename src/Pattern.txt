@@ -1,0 +1,6 @@
+For Arrays -> Finding a optimal solution for a problem
+we use the following patterns::
+a. Two Pointers
+b. Sliding Windows
+c. Prefix Sum
+d. Kadene's
