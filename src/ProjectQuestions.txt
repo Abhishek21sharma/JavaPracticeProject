@@ -7,3 +7,19 @@ Framework structure::
 1. Explain structure of your framework
 2. What is the unique problem you solved with your code
 3. General practices
+
+
+Array Questions:
+Move all zeros to the end -> 2 pointer approach
+Left rotation of an array ->
+Top kth repeated elements in an array ->
+Sum of kth element = to n ->
+
+
+String
+Find non-repeated OR Kth top repeated characters in a
+Anagram
+Palindrome
+LongestSub-String non-repeated -> Sliding window
+LongestSub-String anagram -> sliding window
+Some of Regex based questions
