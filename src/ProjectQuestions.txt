@@ -2,6 +2,38 @@
 For coding theory questions::
 1. Coding Principles
 2. SOLID Pattern
+3. Test Pyramid
+
+Project related or general questions:
+1. how and when would you engage Developers in your team as test engineer
+2. what was your role like in Cognizant/previous company
+3. what are your goals for future ? to focus on Web, Backend or Mobile
+4. Describe a situation where you worked on something which brought change or where you bring the change
+5. what is the reason for change
+6. what would be your ideal next role
+7. Do you have any questions for us
+8. why choosing this tech of playwright and not java ?
+If they ask why you’re moving to Playwright, mention Auto-awaiting, Trace Viewer, and Native Mobile Emulation. It’s about modern speed vs. the "boilerplate" of older Java/Selenium frameworks.
+9. "How do you handle a developer who says 'It works on my machine' when you find a bug?"
+This shows your Communication and Mentorship skills. Focus on collaboration, not confrontation.
+"I view this as an opportunity to align our environments. Rather than a 'back-and-forth,' I provide a clear, reproducible report—ideally with a Playwright trace file or a containerized environment link. I’ll often sit down with the developer to compare the CI/CD environment logs with their local setup. Usually, it’s a configuration or data seeding issue. By approaching it as a 'joint investigation' rather than a 'critique,' I build the trust necessary to maintain a high-performing culture where quality is a shared responsibility."
+10. "How do you decide what to automate and what to keep manual?"
+Use a framework, ention the Test Automation Pyramid.
+I prioritize automation for high-risk, high-frequency, and stable features.
+11. "Tell me about a time you had to handle a high-priority defect found right before a release."
+We focus on : Focus on Root Cause Analysis (RCA) and Process Improvement.
+"In a previous role, we identified a critical integration bug during the final regression suite for a major release. My immediate priority was a Risk Assessment: determining if we could patch, feature-flag the issue, or if a 'Go/No-Go' decision was necessary. After the immediate fix, I led a root cause analysis. We discovered a gap in our API contract testing. I then implemented a 'Shift-Left' strategy by introducing contract tests in the pull-request stage, ensuring that specific type of failure could never reach the release branch again. This turned a one-time crisis into a permanent increase in our deployment frequency and reliability."
+12. salary expectations:
+Deflection: "Right now, I’m more focused on ensuring I’m the right technical and cultural fit for the team. I’m happy to discuss specific numbers once we’ve determined that my 10+ years of experience aligns with Squarcle's delivery goals."
+or give them a figure based on their budget for this role.
+13. what are testing principles
+14. sql joins etc
+15. How do you communicate a high-priority risk to a non-technical stakeholder?
+
+
+Scenario based questions:
+check the youtube video :
+https://www.youtube.com/watch?v=AFVy7_mP1-s&list=LL
 
 Framework structure::
 1. Explain structure of your framework
@@ -23,3 +55,16 @@ Palindrome
 LongestSub-String non-repeated -> Sliding window
 LongestSub-String anagram -> sliding window
 Some of Regex based questions
+
+
+Other tools:
+Kubernates
+Jenkins
+AWS
+Github ACtions
+Vault
+Kibana/ELK
+TestRail
+ADO
+Jira
+etc
