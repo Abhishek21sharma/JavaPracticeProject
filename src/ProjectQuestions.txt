@@ -35,6 +35,112 @@ Scenario based questions:
 check the youtube video :
 https://www.youtube.com/watch?v=AFVy7_mP1-s&list=LL
 
+When a bug is reported in PROD and not caused in testing:
+Ans: we do the root cause analysis, once we found out the reason we will check in our reg pack
+if we have that test and we checked this or not. If it's a ENV specific just in PROD we will inform the team
+about the ENV gap and risk it may cause, also we will check in Requirement document weather it was a actual
+requirement or missed whilst teams discussing with us as techinical team. If it's something really missed
+will address that as a miss and add it in our pack and also automate it.
+
+que: you aksed to test the product but requirements not clear.
+ans: will check with the team ,arrange few requirement calls, read through some docs if present,
+and do some exploratory testing to understand the system, keep everyone in the loop if there is any gaps in the understanding
+
+que: a dev is not happy with a bug , how do u handle it
+ans: it's about collaboration and not about confrontation, so I'll show them my ENV setup,
+clear explain the issue with steps, logs, screenshots.
+data i used and possible to screen share and explain the issue..
+
+que: a major functionality is not working and release is soon. what you will do
+ans:inform the team ASAP. Plan the next step to fix it and do a retesing  testing followed by a mini
+regression. Or give them option to Feature Swtich this functionality.
+
+que:Login page , what are the main test cases/scenario.
+ans: valid/invalid credentials
+blank field
+SQL injection
+Case sensitivity
+Password masking
+Error msg
+Account locked after many failed attempts
+
+que: your app is integrated with 3rd party api which is not yet available, how do you test it.
+ans: use mocks, validate schema structure of api, focus on how system behaves when service is down/unavailable
+
+que: If some fix must go in prod, what/how will you test it.
+ans: Focus on critical areas and follow a risk based testing .
+Feature switch but ON
+use exploratory testing for low risk areas
+
+que: if you found a blocker bug before release.
+ans: inform the team ASAP, document the incident as critical incident , delay the testing sign-off until bux fixed and re-tested
+followed by a reg
+
+
+
+
+
+More Questions:
+Question: "Describe a time when you acted as a consultant to your
+leadership team to recommend a major change in the tech stack or process.
+How did you identify the need for change, what data did you use to solve
+the 'technical debt' problem, and what was the ultimate result?"
+
+Answer: Some of the quick wins we adopted: All dev merges to main branch must be regression checked. No new merges to main
+unless reg is PASSED/KNOWN FAILURE(Bug raised). we didn't implement this in CD system as ENV was shared one
+and sometimes other teams would be bringing pods down etc.
+Also, another quick win was: All QA PRs were reviewed by 2 Engineers and only then change was allowed to merge
+(this proves the change is sold/non-redudent and we used best practices and also it gives a chance to anothers to understand that if we covered all related tests or there is a gap cover.)
+I conducted a 2-week PoC comparing Playwright/TS against our existing Java framework. I gathered data on execution speed (Playwright was 3x faster due to parallelism), maintenance (Playwright's auto-wait reduced code by 40%), and developer engagement. I presented a "Consulting Deck" to stakeholders showing that the cost of not switching (lost developer hours) outweighed the migration cost.
+
+Question: "Tell us about a situation where you faced
+significant resistance from the Development or Product team regarding
+a quality initiative. How did you manage that relationship to find a middle ground?"
+Answer: It's about collabrotation and not confrontation.
+I proposed a "No-Merge" policy where PRs could not be merged if they decreased the overall test coverage or if the Playwright smoke suite failed. The Dev Lead resisted, fearing it would slow down their "Sprint Velocity."
+Action: I organized a "sync-up" session rather than an email chain. I listened to their concerns and proposed a tiered approach: we started with a "Warning" phase for two sprints before making it a "Hard Block." I also paired with their Lead Dev to optimize the CI pipeline so the "Blocking Tests" ran in under 5 minutes.
+Result: By involving them in the solution, the resistance turned into ownership. Within three months, production "hotfixes" dropped by 25%, and the Dev team eventually requested more tests to be added to the gate because they felt safer releasing.
+
+Question: "you often have to communicate complex technical risks
+to non-technical stakeholders. Give us an example of a time you had
+to explain a critical 'go/no-go' risk. How did you structure your communication?"
+
+Answer: The gap was pods were going to crashloop state because of the memory leak , it was not a functional bug but cause in-stablity.
+I clearly explained the team about the bug and functionality impact and when it may cause , when the load goes
+more than few users.
+Proposed the option to delay the release or Feature-Flag it.
+Team quickly decided to put the feature behind a switch and we deployed and later put the fix and enabled the functionality
+
+Question: "Innovation is key at Squarcle.
+Tell us about a time you identified an inefficiency in the testing
+lifecycle that was costing time or money. How did you consult with the
+engineering team to implement a solution?"
+Answer: Converted slow process of creating data from slow UI scripts to pure backend (200 ms)
+Situation: Our team was spending 20% of every sprint just setting up "Test Data" (creating accounts, orders, etc.) manually or through slow UI scripts.
+Action: I consulted with the Backend Architects to gain access to their internal APIs. I then built a "Data Utility" in Playwright using APIRequestContext. Instead of using the UI to create a user (30 seconds), the script now used an API call (200ms) to inject the data directly before the UI test started.
+
+
+Question: What are the top three 'Consulting' advantages you bring to a team using Playwright that a junior JS developer might miss?"
+Answer:
+Framework Design Patterns: A junior might just write scripts; with my Java background, I bring disciplined patterns like Singleton, Factory, and Clean Architecture to TypeScript, ensuring the framework is scalable
+Risk-Based Testing: I don't automate everything. 10 years of experience helps me identify what to test first to provide the most business value.
+Observability: I understand that "Passed" isn't enough. I focus on the "Reportability" and "Observability" of the suite—ensuring failures provide clear logs, traces, and actionable data for the team.
+
+Question for us:
+Since we are in consulting world here at sqaurecle and we mostly busy with deliverables. Is there dedicated time for R&D on new tools & tech?
+specially with agentic AI test solutions..
+
+at squarecle do we have a culture to discuss internally the best practices which have worked for client A ?
+if some other client can also use them. do we communicate and connect internally and share them ?
+
+Are we bringing in AI solutions too or it's already in place or POCs are in progress for them ?
+
+
+
+
+
+
+
 Framework structure::
 1. Explain structure of your framework
 2. What is the unique problem you solved with your code
