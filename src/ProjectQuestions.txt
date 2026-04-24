@@ -138,6 +138,78 @@ Are we bringing in AI solutions too or it's already in place or POCs are in prog
 
 
 
+ Communication & Risk (Stakeholder Reporting)
+Question:
+"It’s the final day of a two-week sprint for a high-priority client.
+Your Playwright automation suite has just flagged a 'Medium' severity bug
+in the checkout flow, but it only occurs on WebKit (Safari).
+The Product Owner is pushing for a 5:00 PM release to meet a marketing deadline.
+ How do you communicate this risk, and what is your recommendation?"
+Answer: WE have to clearly highlight the issue here with the team/stakeholders/PMs,
+Need to do a little bit of risk analysis , find out how many customers are on safari browser
+and could be impacted and then take a decision . We showed the team using the trace vierer
+how exactly this happened and we agreed to Feature switch off just this functionality but
+to go ahead with the release.
+
+Question: How to say, what to automate: Explain the risk matrix:
+the most frequent and high impact - these tests must be in the automation
+(smoke tests)
+Low impact / Low likelihood - These stays as manual 'check-ins'
+
+Questions to ask them:
+"How does Squarcle handle the 'Quality Ownership'
+ between Developers and SDETs? Do Devs write the component tests while
+ SDETs focus on the end-to-end Playwright journeys?"
+
+"What is the biggest challenge the engineering team is currently facing regarding CI/CD stability?"
+
+"How does the team balance the speed of 'Agile' delivery with the thoroughness required for a consultancy client?"
+"Definition of Ready" (DoR) and "Definition of Done" (DoD) should include specific quality benchmarks.
+Layered Testing (The Pyramid):
+You balance speed by pushing as many tests as possible down to the Unit
+and API levels (which run in seconds),
+while using Playwright for the "Critical Path" (the "Golden Path")
+that ensures the client's revenue is safe.
+
+"I balance Agile speed with thoroughness by moving away from 'Testing' as a phase
+and toward Quality Engineering as a culture.
+First, I implement a Shift-Left approach, ensuring our Playwright locators
+and test shapes are discussed during the design phase.
+Second, I optimize our CI/CD pipeline using Parallelization and
+Sharding so that our 'thorough' suite doesn't become a bottleneck.
+Finally, I use Risk-Based Testing to ensure that while we move fast,
+we never compromise the 'Golden Path'—those critical
+user journeys that directly impact the client’s ROI.
+My goal is to provide Confidence at Velocity."
+
+Contract Testing is the "Consultant’s Solution" to this problem.
+It allows you to test the "handshake" between the Frontend (Consumer)
+and the Backend (Provider) without needing both systems to be running at the same time.
+
+The Provider (Backend) promises to deliver data in a specific format (e.g., a JSON with id as a number).
+The Consumer (Frontend/UI) promises to send requests in a specific format.
+Contract testing verifies that both parties still agree on this contract.
+If the Backend team tries to change id to a string, the contract test fails before the code even reaches a shared environment
+
+
+Some of NFT concepts:
+Load Testing: How does the system behave under "normal" expected user load?
+Stress Testing: At what point does the system break (the "breaking point")?
+Endurance (Soak) Testing: Does the system leak memory if it runs for 10 hours straight?
+Scalability: If we double the users, does the response time stay the same?
+
+"In my career, my primary focus has been building robust Functional Automation frameworks.
+However, I am very familiar with the core concepts of NFT.
+For instance, I’ve worked alongside teams using JMeter for
+protocol-level performance testing. While I wasn't the primary script
+creator for those, I am well-aware of how to analyze Response Times, Throughput, and Error Rates.
+Response Times: This is the amount of time it takes for a system to respond to a specific request.
+Throughput: Throughput measures how much work the system can handle in a given time unit.Usually measured in Requests Per Second (RPS) or Transactions Per Minute (TPM).
+Error Rates: This is the percentage of requests that resulted in an error (e.g., HTTP 500, 503, 504) compared to the total requests.
+
+
+
+
 
 
 
