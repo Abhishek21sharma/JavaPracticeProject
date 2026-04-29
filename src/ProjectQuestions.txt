@@ -246,3 +246,172 @@ TestRail
 ADO
 Jira
 etc
+
+java appium code :
+note we moved away from desirecapablities class to uiautomator2 class now in latest appium client version
+@BeforeMethod
+    public void setUp() throws MalformedURLException {
+        // Appium 2.0+ uses Options instead of DesiredCapabilities
+        UiAutomator2Options options = new UiAutomator2Options()
+            .setPlatformName("Android")
+            .setDeviceName("Pixel_8_Pro")
+            .setApp("/path/to/app.apk")
+            .setAutomationName("UiAutomator2")
+            .setAppPackage("com.example.app")
+            .setAppActivity(".MainActivity");
+
+        // The URL usually defaults to localhost:4723
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+
+    @Test
+    public void basicTest() {
+        // Find by Accessibility ID (Best practice)
+        WebElement el = driver.findElement(AppiumBy.accessibilityId("login-btn"));
+        el.click();
+    }
+
+Shadow DOM in selenium:
+DOM inside DOM - Devs used it for encapsulation
+find the main ele:
+WebElement shadowHost = driver.findElement(By.cssSelector("#shadow-host-element"));
+now get the shadow root:
+SearchContext shadowRoot = shadowHost.getShadowRoot();
+now get the element:
+WebElement shadowContent = shadowRoot.findElement(By.cssSelector(".inner-button"));
+shadowContent.click();
+JS way:
+WebElement shadowContent = (WebElement) ((JavascriptExecutor) driver).executeScript(
+    "return document.querySelector('#shadow-host-element').shadowRoot.querySelector('.inner-button')"
+);
+shadowContent.click();
+
+
+Interface: An interface in Java is a reference type, similar to a class, that represents a contract. It defines what a class should do, but not how it does it.
+Functional Interface: Interface with just one  method and that method is abstract(by default all methods are abstract in interfaces)
+
+Stream API -> works on collections like List, Map, etc
+methods like: filter(), map(), collect()
+
+selenium implicit wait: works for all elements (session wise)
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+explicit wait: conditional wait: works for specific elements where applied
+presenceOfElementLocated(), visibilityOfAllElementsLocatedBy() , elementToBeClickable()
+(Webdriver wait, Fluent wait)
+
+WebElement firstResult = new WebDriverWait(driver, Duration.ofSeconds(10))
+        .until(ExpectedConditions.elementToBeClickable(By.xpath("//a/h3"
+
+Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+  .withTimeout(Duration.ofSeconds(30))
+  .pollingEvery(Duration.ofSeconds(5))
+  .ignoring(NoSuchElementException.class);
+
+selenium list using:
+Select select  = new
+
+or dynaic list using:
+// Strategy 1: Iterate and click a specific one by text
+for (WebElement product : products) {
+    if (product.getText().equals("Sauce Labs Backpack")) {
+        product.click();
+        break;
+    }
+}
+
+// Strategy 2: Using Streams (Functional approach)
+products.stream()
+    .filter(element -> element.getText().contains("Backpack"))
+    .findFirst()
+    .ifPresent(WebElement::click);
+
+
+ playwright way:
+ await page.locator('.inventory_item_name').filter({ hasText: 'Backpack' }).click();
+ const prices = await page.locator('.inventory_item_price').allTextContents();
+ // Result: ['29.99', '9.99', '15.99']
+
+
+ Action class in java:
+ Actions action = new Actions(driver)
+ action.drag(toElement).perform()
+ OR contextClick(toElement).perform()
+
+ Robot class: works with the co-ordinates , x-asis and y-asis
+ we need to declare the class and pass on the cordinates to tell it how much to move on a screen
+
+
+ Testing challenges:
+ a. Automation
+ Flaky and unstable challenges
+ Tools and framework limitations
+ b. ENV & Infra
+ Env issues not same
+ Restricted system access
+ c. E2E & Integration
+ d. Dependency between higher
+
+
+How to manage test data ..?
+
+Any test data challenges in the shared ENVs ..?
+
+some of the code example:
+IntelliJ shortcut to search for a test data file:
+select the word which I want to search with: lets say the word is : event-v3-admin- , if we select it
+and press command + shift+ O (in mac) : it will highlight all files with this name..
+
+some of the good code logic here:
+map with conditional statement:
+lstIgnoreElements.stream().map(l -> l.stream().map(s -> (null != s && s.contains("{{"))) ?
+TestDataHelper.replaceParam(s,false,false) : s)
+.collect(Collector.toList()).collect(Collector.toList())
+)
+
+java : .equalsTo() string comparisons
+and ==
+what is the difference
+
+Git: to see/view all the upstream branches, simply do git pull and enter (and no branch specified here)
+what it does is: it will download all remote branches and make your local upto date with the remote
+
+if you do: git pull origin branch_name: this will go to branch_name branch and copied that code to your local
+
+
+java8 stream with conditional :
+.forEach(e -> e.getAttribute("aria-expanded").trim().equalIgnoreCase("false")
+?
+e.click()
+:
+sout("Element already expanded: "+ e)
+
+
+
+How to get CSS of overlay containers:::
+these texts disappear as soon as if we hover outside of it
+so we have to freeze the screen. So one way is goto -> developer settings -> Sources --> then click on 'debugger' on top right
+this will freeze the screen
+
+as this might take some time , so we have to freeze immediately, we can do :
+open js console on the browser (dev tools) :
+this will stop the execution after 5 secs:
+setTimeout(function(){debugger},5000)
+
+to form query params from feature file:
+public static formQueryParams(Datatable querParams) {
+return
+queryParam.asMaps().stream().
+map(row -> row.get("key")+"="+row.get("value")).
+collect(Collectors.joining("&"));
+}
+
+
+feature file example::
+@And("^I (should|should not) be able to access the search button")
+public void iShouldBeAbleToAccessSearchButton(String negation){
+boolean shouldAccess = negation.equals("should");
+
+
+
+how do we start testing from requirements to delivery ,..?
