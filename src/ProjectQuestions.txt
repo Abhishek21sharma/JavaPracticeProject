@@ -206,7 +206,8 @@ creator for those, I am well-aware of how to analyze Response Times, Throughput,
 Response Times: This is the amount of time it takes for a system to respond to a specific request.
 Throughput: Throughput measures how much work the system can handle in a given time unit.Usually measured in Requests Per Second (RPS) or Transactions Per Minute (TPM).
 Error Rates: This is the percentage of requests that resulted in an error (e.g., HTTP 500, 503, 504) compared to the total requests.
-
+Cuncurrency/Threads: it is the number of users allowed for this load
+Ramp up time: It tells after how many seconds/mins we should be adding the users
 
 
 
@@ -216,6 +217,10 @@ Error Rates: This is the percentage of requests that resulted in an error (e.g.,
 Framework structure::
 1. Explain structure of your framework
 2. What is the unique problem you solved with your code
+The Unique Problem: Eliminating Manual Latency in Mobile CI/CD:
+In many organizations, mobile testing is delayed because QA teams must manually download builds or trigger jobs once a developer uploads a new .apk or .ipa file. You solved this by building a serverless "watcher" system
+
+
 3. General practices
 
 
