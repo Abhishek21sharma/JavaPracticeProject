@@ -454,3 +454,45 @@ Resource Contention & Data Collisions
 Non-Deterministic Infrastructure (Flakiness)
 --Parallelism puts massive stress on your infrastructure, whether it's local, a Grid, or a CI/CD runner.
 --CI Runner Limits: GitHub Actions or Jenkins nodes have limited CPU/RAM. If you "over-shard" (e.g., 20 workers on a 2-core machine), the browsers will compete for resources, leading to extremely high TimeoutError rates.
+
+
+How to approach & test from testing :
+Entry point : Requirement Analysis
+find out: Who, What , Why and How ?
+Impact Analysis: Determine which existing features might break because of this new requirement.
+Follow 3 amigoes rule and align to Defination of Ready.
+
+Test Planning & Stratergy:
+Define the Test Level: Unit, System(API), Integration
+Identity Test Data Requirements
+Determine the Automation Feasibility: Determine the critical path scenarios and prioritize them to automate
+
+Test Design:
+Building Test Scenarios and Test cases
+Traceblity Matrix: Map every requirement to each test cases for 100% coverage
+Peer Review: with devs etc or identity any edge cases or for any feedback
+
+Test Execution and Defect Management
+
+Test Closure: Defination of Done:
+Exit criteria check: all high priority bugs are re-tested and closed.
+Test summary report: If applicable
+
+The "Shift-Left" Approach
+As an experienced tester, your greatest value is often in Shift-Left testing.
+This means being involved in the design phase to catch logic flaws
+ before a single line of code is written. Fixing a requirement bug costs significantly less
+ than fixing a production bug.
+
+Definition of ready:
+it act as a contract between technical team and product owner.
+It specifies the criteria a User Story must meet before it can be pulled into a Sprint for execution.
+DoR checklist:
+While every team defines its own DoR, a typical checklist for a tester approaching a new requirement includes:
+Clear Title & Description: The "As a [user], I want [action], so that [value]" format is well-defined.
+Acceptance Criteria (AC): Specific conditions that must be met for the story to be marked as "Done."
+Visuals/Wireframes: If there is a UI component, the design or mockups are attached.
+Dependencies Identified: Any third-party APIs or internal services required are available or accounted for.
+Technical Feasibility: The team has discussed the story and believes it can be implemented.
+Performance/Security Requirements: Non-functional requirements are explicitly stated if applicable.
+
