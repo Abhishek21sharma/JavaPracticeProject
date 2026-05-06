@@ -501,3 +501,29 @@ Dependencies Identified: Any third-party APIs or internal services required are 
 Technical Feasibility: The team has discussed the story and believes it can be implemented.
 Performance/Security Requirements: Non-functional requirements are explicitly stated if applicable.
 
+For RestAssured:
+Specially for POST/PUT Requests:
+what we do is: since rest-assured body() accepts string as well ( a string body),
+we keep the payload template in the repo and then ready through it line by line and update anything
+with {{RandomNum.NumInt1}} with a value and then in the end store the complete payload into a string
+variable and pass it to body() method which also accepts it as a string.
+we also during this operation store all this info what we updated against a map.
+
+== vs .equals()
+== -> The == operator checks reference equality for objects(String etc) and value equality for primitives(like int, char , float etc)
+.equals() -> the String equals() method compares the two given strings based on the data/content of the string. If all the contents of both strings are the same, it returns true.
+In our code we mostly used '=='
+// the concept of .equals() and == operator
+public class Geeks {
+    public static void main(String[] args) {
+
+        String s1 = "HELLO";
+        String s2 = "HELLO";
+        String s3 =  new String("HELLO");
+
+        System.out.println(s1 == s2);
+        System.out.println(s1 == s3);
+        System.out.println(s1.equals(s2));
+        System.out.println(s1.equals(s3));
+    }
+}
