@@ -546,3 +546,24 @@ VERY IMPORTANT QUESTION :: How to update a payload
 3. now we use filter for string s if it has that key , then we update it with key + that udated value
 4. thus we store the complete payload into a String variable
 5. we pass the string s (which is updated string ) to the post method
+
+Java practial question..
+ques:String s = ABC123
+ans: convert to CBA321
+
+Stringbuilder digits = new StringBuilder();
+Stringbuilder letter = new StringBuilder()
+
+for(Char c : s.tocharArray()) {
+
+if(character.isLetter(c)) {
+letter.append(c)
+}
+if(character.isDigit(c)){
+digits.append(c)}
+}
+
+String reverseddigits = digit.reverse().toString();
+String reverseLetters = letter.revese().toString();
+
+String final  = reverseDigits + reverseLetters;
