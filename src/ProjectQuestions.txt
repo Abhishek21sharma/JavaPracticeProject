@@ -528,6 +528,8 @@ public class Geeks {
     }
 }
 
+
+<-- some of API best practices and how to do that -->
 What is serialization and de-serialization in JAVA and where we used it automation
 --we used it in PoJo classes..
 when sending payloads, it's best practices to send them using 'Object of JAVA class'
@@ -535,3 +537,12 @@ we declare payload 'keys' as private members
 we use getter() and setter() or sometime instead of setter() we add the fields as in the constructor
 of the class
 in the 'test' class, we create the payload, object out of it and make the POST request etc.
+
+
+VERY IMPORTANT QUESTION :: How to update a payload
+(in the POST Request, if we want to update it with different dataset)
+1. first assume that payload is well structured and stored in the file
+2. read it line by line using, read-all-Files , which return the list and hence we use strem on it
+3. now we use filter for string s if it has that key , then we update it with key + that udated value
+4. thus we store the complete payload into a String variable
+5. we pass the string s (which is updated string ) to the post method
