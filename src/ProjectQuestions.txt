@@ -527,3 +527,11 @@ public class Geeks {
         System.out.println(s1.equals(s3));
     }
 }
+
+What is serialization and de-serialization in JAVA and where we used it automation
+--we used it in PoJo classes..
+when sending payloads, it's best practices to send them using 'Object of JAVA class'
+we declare payload 'keys' as private members
+we use getter() and setter() or sometime instead of setter() we add the fields as in the constructor
+of the class
+in the 'test' class, we create the payload, object out of it and make the POST request etc.
